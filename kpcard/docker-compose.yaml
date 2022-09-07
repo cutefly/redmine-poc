@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  redmine:
+    image: redmine:4.1
+    restart: always
+    container_name: kpcard-redmine
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: redmine
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_ENCODING: utf8
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+    volumes:
+     - ./data/redmine/files:/usr/src/redmine/files
+     - ./data/redmine/plugins:/usr/src/redmine/plugins
+     - ./data/redmine/themes:/usr/src/redmine/public/themes
+    networks:
+      - redmine
+    
+  # mysql configuration
+  db:
+    image: mysql:5.7
+    restart: always
+    container_name: kpcard-redmine-db
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: kpcard1@
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: redmine
+      MYSQL_DATABASE: redmine
+    volumes:
+     - ./data/mysql:/var/lib/mysql
+    command: #문자셋 지정
+     - --character-set-server=utf8mb4
+     - --collation-server=utf8mb4_unicode_ci
+    networks:
+      - redmine
+
+networks:
+  redmine:
+    driver: bridge

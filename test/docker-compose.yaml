@@ -1,0 +1,28 @@
+# docker-compose.yml
+version: '3'
+
+services:
+    redmine:
+        image: redmine:4.1
+        restart: always
+        # container_name: redmine
+        ports:
+             - 3000:3000
+        environment:
+            REDMINE_DB_MYSQL: mariadb
+            REDMINE_DB_PASSWORD: redmine-password
+            REDMINE_DB_DATABASE: redmine
+            REDMINE_DB_ENCODING: utf8
+            
+    mariadb:
+        image: mariadb:10.8
+        restart: always
+        # container_name: mariadb
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: redmine-password
+            MYSQL_DATABASE: redmine
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci

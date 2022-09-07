@@ -1,0 +1,56 @@
+version: '3.3'
+
+services:
+  redmine:
+    image: redmine:3
+    restart: always
+    container_name: redmine
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: redmine
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_ENCODING: utf8
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+    volumes:
+    #  - ./data/redmine/config:/usr/src/redmine/config
+     - ./data/redmine/files:/usr/src/redmine/files
+     - ./data/redmine/plugins:/usr/src/redmine/plugins
+     - ./data/redmine/themes:/usr/src/redmine/public/themes
+    
+  # mysql configuration
+  db:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: redmine
+      MYSQL_DATABASE: redmine 
+    volumes:
+     - ./data/mysql:/var/lib/mysql
+    command: #문자셋 지정
+     - --character-set-server=utf8mb4
+     - --collation-server=utf8mb4_unicode_ci
+
+  # mariadb configuration
+  # db:
+  #   image: mariadb:10.5
+  #   restart: always
+  #   container_name: mariadb
+  #   ports:
+  #    - 3306:3306
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: redmine
+  #     MARIADB_DATABASE: redmine 
+  #   volumes:
+  #    - ./data/mariadb:/var/lib/mysql
+  #   command: #문자셋 지정
+  #    - --character-set-server=utf8mb4
+  #    - --collation-server=utf8mb4_unicode_ci
+
+networks:
+  redmine:
+    driver: bridge

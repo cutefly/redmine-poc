@@ -1,0 +1,44 @@
+kpcard-redmine-1  | Your Gemfile lists the gem puma (>= 0) more than once.
+kpcard-redmine-1  | You should probably keep only one of them.
+kpcard-redmine-1  | Remove any duplicate entries and specify the gem only once.
+kpcard-redmine-1  | While it's not a problem now, it could cause errors if you change the version of one of them later.
+kpcard-redmine-1  | The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x64-mingw32, x86-mswin32. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x64-mingw32 x86-mswin32`.      
+kpcard-redmine-1  | The dependency ffi (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x64-mingw32, x86-mswin32. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x64-mingw32 x86-mswin32`.
+kpcard-redmine-1  | The Gemfile's dependencies are satisfied
+kpcard-redmine-1  | rake aborted!
+kpcard-redmine-1  | NoMethodError: undefined method `to_prepare' for ActionDispatch::Callbacks:Class
+kpcard-redmine-1  | Did you mean?  to_param
+kpcard-redmine-1  | /usr/src/redmine/plugins/clipboard_image_paste/init.rb:32:in `<top (required)>'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:291:in `require'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:291:in `block in require'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:257:in `load_dependency'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:291:in `require'
+kpcard-redmine-1  | /usr/src/redmine/lib/redmine/plugin.rb:187:in `block in load'
+kpcard-redmine-1  | /usr/src/redmine/lib/redmine/plugin.rb:178:in `each'
+kpcard-redmine-1  | /usr/src/redmine/lib/redmine/plugin.rb:178:in `load'
+kpcard-redmine-1  | /usr/src/redmine/config/initializers/30-redmine.rb:20:in `<top (required)>'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:285:in `load'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:285:in `block in load'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:257:in `load_dependency'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/dependencies.rb:285:in `load'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/engine.rb:663:in `block in load_config_initializer'
+kpcard-redmine-1  | /usr/local/bundle/gems/activesupport-5.2.8/lib/active_support/notifications.rb:170:in `instrument'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/engine.rb:662:in `load_config_initializer'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/engine.rb:620:in `block (2 levels) in <class:Engine>'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/engine.rb:619:in `each'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/engine.rb:619:in `block in <class:Engine>'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:32:in `instance_exec'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:32:in `run'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:61:in `block in run_initializers'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:50:in `each'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:50:in `tsort_each_child'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/initializable.rb:60:in `run_initializers'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/application.rb:361:in `initialize!'
+kpcard-redmine-1  | /usr/src/redmine/config/environment.rb:16:in `<top (required)>'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/application.rb:337:in `require'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/application.rb:337:in `require_environment!'
+kpcard-redmine-1  | /usr/local/bundle/gems/railties-5.2.8/lib/rails/application.rb:520:in `block in run_tasks_blocks'
+kpcard-redmine-1  | /usr/local/bundle/gems/rake-13.0.6/exe/rake:27:in `<top (required)>'
+kpcard-redmine-1  | Tasks: TOP => db:migrate => db:load_config => environment
+kpcard-redmine-1  | (See full trace by running task with --trace)
+kpcard-redmine-1 exited with code 1
